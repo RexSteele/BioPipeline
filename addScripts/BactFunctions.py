@@ -12,8 +12,8 @@ from itertools import repeat
 sys.dont_write_bytecode = True
 
 # # TandemRepeatsFinder function call
-# def tandemRepeatFinder(tanFile):
-#     subprocess.Popen(["TandemRepeatsFinder", FASTAfiles + tanFile, "2", "7", "7", "80", "10", "50", "500", "-f", "-h"], close_fds=True).communicate()[0]
+def tandemRepeatFinder(tanFile):
+    subprocess.Popen(["TandemRepeatsFinder", FASTAfiles + tanFile, "2", "7", "7", "80", "10", "50", "500", "-f", "-h"], close_fds=True).communicate()[0]
 
 #Parsing of TRF files to single text file
 def trfParse(trfSrc, fileList):
@@ -33,7 +33,7 @@ def trfParse(trfSrc, fileList):
                             outFile.write(entry)
 
 
-#Run FASTA files through prokka, parse FAA'srun results through Ortho, move results as needed (Needs citation)
+#Run FASTA files through prokka, parse FAA's run results through Ortho, move results as needed (Needs citation)
 def prokka(FASTAlist, FASTAfiles, PROKKAfiles, ORTHOfiles, CPUs, boolProkka, boolOrtho):
     if boolProkka:
         for file in FASTAlist:
