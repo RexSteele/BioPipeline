@@ -82,7 +82,7 @@ def RVDminer(RVDFiles, RVDsrc, RVDdst, DISdst, boolRVD, boolDIS):
 def ksnpCall(faPath, ksnpPath, ksnpList, ksnpCpus):
         ksnpGenomes = ksnpPath + "ksnpGenomes"
         #Size of sets to split the ksnpList in to for easier processing by kSNP3 (avoids seg faults!!!)
-        basis = 40
+        basis = 50
         random.shuffle(ksnpList)
         splitKsnpList = [ksnpList[i * basis:(i+1)*basis] for i in range((len(ksnpList) + basis - 1) // basis)]
         with(open(ksnpGenomes, 'w')) as outFile:
@@ -105,10 +105,11 @@ def ksnpCall(faPath, ksnpPath, ksnpList, ksnpCpus):
                     ksnpInt = tempInt[0]
                     for i in range(len(splitKsnpList)):
                         if(i is 0):
-                            subprocess.Popen(["kSNP3 -in " + ksnpGenomes + str(i) + " -k " + str(ksnpInt) + " -outdir " + ksnpPath + "kSNP3_results -ML -CPU " + str(ksnpCpus)], shell=True, close_fds=True).communicate()[0]
+                            # kSNP3 -in /data/rex/BioPipeline/projects/pekoRun2/KSNP3files/fasta_list -k 23 -outdir kSNp3_test/ >kSNP3_log
+                            subprocess.Popen(["kSNP3 -in " + ksnpGenomes + str(i) + " -k " + str(ksnpInt) + " -outdir " + os.path.join(ksnpPath, "kSNP3_results") + " >" + os.path.join(ksnpPath, "ksnp_log")], shell=True, close_fds=True).communicate()[0]
                             print("Finished run of set: " + str(i))
                         else:
-                            subprocess.Popen(["kSNP3 -in " + ksnpGenomes + str(i) + " -k " + str(ksnpInt) + " -outdir " + ksnpPath + "kSNP3_results -ML -CPU " + str(ksnpCpus) + " -SNPs_all " + ksnpPath + "kSNP3_results/SNPs_all"], shell=True, close_fds=True).communicate()[0]
+                            subprocess.Popen(["kSNP3 -in " + ksnpGenomes + str(i) + " -k " + str(ksnpInt) + " -outdir " + os.path.join(ksnpPath, "kSNP3_results") +  " -SNPs_all " + os.path.join(ksnpPath, "kSNP3_results/SNPs_all") + " >" + os.path.join(ksnpPath, "ksnp_log" + str(i))], shell=True, close_fds=True).communicate()[0]
                             print("Finished run of set: " + str(i))
                     if(os.path.isfile("fasta_list")):
                         shutil.move("fasta_list", ksnpPath + "fasta_list")
