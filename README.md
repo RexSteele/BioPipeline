@@ -67,10 +67,33 @@ To call the pipeline please be inside of the overarching directory, currently na
                             X_arboricola_corylina_CFBP1159,0
                             X_arboricola_corylina_CFBP2565,1
 
+##Additional Flags
 
-## Deployment
-
-Add additional notes about how to deploy this on a live system
+The following are additional flags that can be utilized:
+    
+      -p                    Optional flag to skip Prokka. If running Orthofinder,
+                            Prokka files must be present. Only applies to first
+                            half of pipeline.
+                            
+      -o                    Optional flag to skip Orthofinder. Only applies to
+                            first half of pipeline.
+                            
+      -r                    Optional flag to skip RVDMIner. If running DisTAL,
+                            RVDMiner files must be present. Only applies to first
+                            half of pipeline.
+                            
+      -d                    Optional flag to skip DisTAL. Only applies to first
+                            half of pipeline.
+                            
+      -k                    Optional flag to skip kSNP3. Only applies to first
+                            half of pipeline.
+                            
+      -t                    Optional flag to skip TandemRepeatsFinder. Only
+                            applies to first half of pipeline.
+                            
+      -c                    Skip creation of project directory, select if you are
+                            running select portions of the first half. Only
+                            applies to first half of pipeline.
 
 ## Contributing
 
@@ -81,7 +104,7 @@ Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c6
 * **Alvaro L Perez-Quintero** - *Design and function* - Post-Doc Position, CSU Dept. of Bioagricultural Sciences and Pest Management
     [Research Gate Profile](https://www.researchgate.net/profile/Alvaro_L_Perez-Quintero)
 
-* **Rex Steele**  - *Coding* - CSU CS Junior
+* **Rex Steele**  - *Coding* - CSU CS Senior
 
 ## License
 
