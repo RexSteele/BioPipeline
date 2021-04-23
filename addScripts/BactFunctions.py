@@ -11,10 +11,6 @@ from itertools import repeat
 
 sys.dont_write_bytecode = True
 
-# # TandemRepeatsFinder function call
-# def tandemRepeatFinder(tanFile):
-#     subprocess.Popen(["TandemRepeatsFinder", FASTAfiles + tanFile, "2", "7", "7", "80", "10", "50", "500", "-f", "-h"], close_fds=True).communicate()[0]
-
 #Parsing of TRF files to single text file
 def trfParse(trfSrc, fileList):
     for datFile in os.listdir(os.getcwd()):
@@ -116,6 +112,8 @@ def ksnpCall(faPath, ksnpPath, ksnpList, ksnpCpus):
                     else:
                         print("Unable to find optimum value of K")
 
+def ISESCall(FASTAfiles, RESULTSfiles, CPUs):
+    subprocess.Popen(["isescan.py --seqfile " + FASTAfiles + " --output " + RESULTSfiles + " --nthread " + CPUs], shell=True, close_fds=True).communicate()[0]
 
 #Creates concatenated FAA file, adding file names to start of appropriate lines
 def concatFaa(faaDir, RESULTSfiles):

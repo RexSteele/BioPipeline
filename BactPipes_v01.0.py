@@ -26,6 +26,7 @@ parserPS.add_argument("-d", action='store_false', help="Optional flag to skip Di
 parserPS.add_argument("-k", action='store_false', help="Optional flag to skip kSNP3. Only applies to first half of pipeline.")
 parserPS.add_argument("-t", action='store_false', help="Optional flag to skip TandemRepeatsFinder. Only applies to first half of pipeline.")
 parserPS.add_argument("-c", action='store_false', help="Skip creation of project directory, select if you are running select portions of the first half. Only applies to first half of pipeline.")
+parserPS.add_argument("-i", action='store_true', help="Optional flag to run ISEScan")
 args = parserPS.parse_args()
 
 #Main section / execution of code
@@ -104,6 +105,8 @@ if __name__== '__main__':
             RVDProcess = mp.Process(target = BF.RVDminer, args = (FASTAlist, FASTAfiles, RVDfiles, DISTALfiles, args.r, args.d,))
         if args.k:
             KSNP3Process = mp.Process(target = BF.ksnpCall, args = (FASTAfiles, KSNP3files, FASTAlist, CPUs,))
+        if args.i:
+            ISESProcess = mp.Process(target = BF.ISESCall, args = (FASTAfiles, RESULTSfiles, CPUs,))
 
         #Start processes
         if args.p or args.o:
@@ -112,6 +115,8 @@ if __name__== '__main__':
             RVDProcess.start()
         if args.k:
             KSNP3Process.start()
+        if args.i:
+            ISESProcess.start()
 
         #Rejoin processes with main thread, won't continue till each finishes
         if args.p or args.o:
@@ -120,6 +125,8 @@ if __name__== '__main__':
             RVDProcess.join()
         if args.k:
             KSNP3Process.join()
+        if args.i:
+            ISESProcess.join()
 
         #Creation of faaConcatenated and rvdNucs files for end Results
         BF.concatFaa(PROKKAfiles + "FAAs/", RESULTSfiles)
