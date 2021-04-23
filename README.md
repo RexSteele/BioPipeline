@@ -15,23 +15,26 @@ One Paragraph of project description goes here
     - BayesTraitsV3
 
 Following are the current list of requirements for the pipeline. Currently you must install these yourself, we do hope to change this in the near future.
-   #### Pipeline code requirements
-    ##### Python Requirements
-    1. Python 3
-    2. Modules:
-        * OS, shutil, time, sys, argparse, subprocess, multiprocessing, pandas, re, itertools
-    ##### R Requirements
-    1. Libraries:
-        * ape, argparse, dplyr, phangorn, reshape2, stringr
-   #### Exterior program requirements
-    ##### Tandem Repeat Finder
-    ##### RVDMiner
-    ##### DisTAL
-    ##### Prokka
-    ##### Orthofinder
-    ##### KSNP3 Parse
-    ##### Scoary
-    ##### Bayes Traits V3
+
+#### Pipeline code requirements
+##### Python Requirements
+1. Python 3
+2. Modules:
+    * OS, shutil, time, sys, argparse, subprocess, multiprocessing, pandas, re, itertools
+##### R Requirements
+1. Libraries:
+    * ape, argparse, dplyr, phangorn, reshape2, stringr
+
+#### Exterior program requirements
+ - [Tandem Repeat Finder](https://tandem.bu.edu/trf/trf.html)
+ - RVDMiner
+ - DisTAL
+ - [Prokka](https://github.com/tseemann/prokka)
+ - [Orthofinder](https://github.com/davidemms/OrthoFinder)
+ - [KSNP3 Parse](https://github.com/cdeanj/kSNP3/blob/master/kSNP3)
+ - [Scoary](https://github.com/AdmiralenOla/Scoary)
+ - [Bayes Traits V3](http://www.evolution.rdg.ac.uk/BayesTraitsV3.0.2/BayesTraitsV3.0.2.html)
+ - [ISEScan](https://github.com/xiezhq/ISEScan)
 
 ## Calling
 
@@ -94,6 +97,8 @@ The following are additional flags that can be utilized:
       -c                    Skip creation of project directory, select if you are
                             running select portions of the first half. Only
                             applies to first half of pipeline.
+                            
+      -i                    runs optional process ISEScan. IMPORTANT: This process takes a considerable amount of time to run.
 
 ## Contributing
 
