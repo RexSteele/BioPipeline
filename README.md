@@ -27,8 +27,8 @@ Following are the current list of requirements for the pipeline. Currently you m
 
 #### Exterior program requirements
  - [Tandem Repeat Finder](https://tandem.bu.edu/trf/trf.html)
- - RVDMiner
- - DisTAL
+ - RVDMiner  - Created by Alvaro L Perez-Quintero
+ - [DisTAL](https://sourceforge.net/projects/quetaleffectors/)  - Created by Alvaro L Perez-Quintero. Paper discussing usage can be found [here](https://www.frontiersin.org/articles/10.3389/fpls.2015.00545/full).
  - [Prokka](https://github.com/tseemann/prokka)
  - [Orthofinder](https://github.com/davidemms/OrthoFinder)
  - [KSNP3 Parse](https://github.com/cdeanj/kSNP3/blob/master/kSNP3)
