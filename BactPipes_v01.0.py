@@ -106,7 +106,7 @@ if __name__== '__main__':
         if args.k:
             KSNP3Process = mp.Process(target = BF.ksnpCall, args = (FASTAfiles, KSNP3files, FASTAlist, CPUs,))
         if args.i:
-            ISESProcess = mp.Process(target = BF.ISESCall, args = (FASTAfiles, RESULTSfiles, CPUs,))
+            ISESProcess = mp.Process(target = BF.ISESCall, args = (FASTAfiles, RESULTSfiles, FASTAlist, CPUs,))
 
         #Start processes
         if args.p or args.o:

@@ -112,8 +112,10 @@ def ksnpCall(faPath, ksnpPath, ksnpList, ksnpCpus):
                     else:
                         print("Unable to find optimum value of K")
 
-def ISESCall(FASTAfiles, RESULTSfiles, CPUs):
-    subprocess.Popen(["isescan.py --seqfile " + FASTAfiles + " --output " + RESULTSfiles + " --nthread " + CPUs], shell=True, close_fds=True).communicate()[0]
+def ISESCall(FASTAfiles, RESULTSfiles, FASTAlist, CPUs):
+    for file in FASTAlist:
+        isesPrefix = file.split(".")
+        subprocess.Popen(["isescan.py --seqfile " + os.path.join(FASTAfiles, file) + " --output " + os.path.join(RESULTSfiles, isesPrefix[0]) + " --nthread " + CPUs], shell=True, close_fds=True).communicate()[0]
 
 #Creates concatenated FAA file, adding file names to start of appropriate lines
 def concatFaa(faaDir, RESULTSfiles):
