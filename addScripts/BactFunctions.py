@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+d#!/usr/bin/env python3
 import subprocess
 import sys
 import shutil
@@ -29,7 +29,7 @@ def trfParse(trfSrc, fileList):
                             outFile.write(entry)
 
 
-#Run FASTA files through prokka, parse FAA'srun results through Ortho, move results as needed (Needs citation)
+#Run FASTA files through prokka, parse FAA's run results through Ortho, move results as needed (Needs citation)
 def prokka(FASTAlist, FASTAfiles, PROKKAfiles, ORTHOfiles, CPUs, boolProkka, boolOrtho):
     if boolProkka:
         for file in FASTAlist:

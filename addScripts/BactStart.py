@@ -41,6 +41,7 @@ def pipeStart(name, filePath):
             print("Succesfully created the directory")
     return fullPath, filePath;
 
+#Collects FASTA files for processing when circumventing start of pipeline
 def pipeDetour(name):
     if not name.endswith("/"):
         name = name + "/"
